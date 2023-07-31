@@ -7,6 +7,26 @@ cnx = mysql.connector.connect(
     database="pandeyji_eatery"
 )
 
+
+try:
+    cursor = cnx.cursor()
+
+    # Execute a simple query to check the connection
+    cursor.execute("SELECT 1")
+
+    # Fetch the result
+    result = cursor.fetchone()
+
+    print("Successfully connected to MySQL Workbench.")
+    print("Result of the query:", result)
+
+    # Closing the cursor and connection
+    cursor.close()
+    cnx.close()
+
+except mysql.connector.Error as err:
+    print("Error:", err)
+
 # Function to fetch the order status from the order_tracking table
 def get_order_status(order_id: int):
     cursor = cnx.cursor()
@@ -17,10 +37,12 @@ def get_order_status(order_id: int):
 
     # Fetching the result
     result = cursor.fetchone()
+    
 
     # Closing the cursor
     cursor.close()
 
+   
     # Returning the order status
     if result:
         return result[0]

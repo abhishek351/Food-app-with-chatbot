@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import JSONResponse
-import database_connector
+
 app = FastAPI()
+
+import database_connector
 
 @app.post("/")
 async def handle_request(request: Request):
