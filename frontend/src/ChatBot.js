@@ -3,8 +3,8 @@ const ChatBot=()=>{
         position: 'fixed',
         bottom: '20px',
         right: '20px',
-        width: '300px',
-        height: '400px',
+        width: '350px',
+        height: '600px',
         border: 'none',
       };
     return (
